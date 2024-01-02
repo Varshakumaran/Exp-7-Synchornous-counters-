@@ -1,4 +1,8 @@
-# Exp-6-Synchornous-counters - up counter and down counter 
+## name: varsha .k 
+
+## ref number: 23005952
+
+# Exp 6 Synchornous counters   up counter and down counter 
 ### AIM: To implement 4 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -46,43 +50,75 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+```
+1.Create a new project in Quartus II software.
+2.Name the project as uc for upcounter and dc for downcounter.
+3.Create a new Verilog HDL file in the project file.
+4.Name the module as dc and uc for downcounter and upcounter.
+5.Within the module declare input and output variables.
+6.Complete the program.
+7.End the module.
+```
 
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+## upcounter:
+```
+  module uc(clk, A);
+  input clk;
+  output reg [2:0]A;
+  always @(posedge clk)
+  begin
+  A[2]=(((A[0])&(A[1]))^A[2]);
+  A[1]=(A[0])^A[1];
+  A[0]=A[0]^1;
+  end
+  endmodule
+```
 
-
-
+## downcounter:
+```
+  module dc(clk,A);
+  input clk;
+  output reg [2:0]A;
+  always @(posedge clk)
+  begin
+  A[2]=(((~A[0])&(~A[1]))^A[2]);
+  A[1]=(~A[0])^A[1];
+  A[0]=1^A[0];
+  end
+  endmodule
+```
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+## upcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/8bb1d78a-c284-4c64-82e5-6c0b5d817113)
 
-
-
-
-
-
+## downcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/480d0b2c-d516-40b5-b143-ca55046b77ce)
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+## upcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/4ba30851-9b77-45b3-920a-0d7ac029449a)
 
-
-
+## downcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/e88f69c7-0d37-469d-94f3-002b7a8a8d2a)
 
 
 ### TRUTH TABLE 
+## upcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/62821388-4073-45f7-895d-a8a5affd0c22)
 
-
+## downcounter:
+![image](https://github.com/Varshakumaran/Exp-7-Synchornous-counters-/assets/144979367/0f13755e-46da-49b7-8bca-92eb7c6a9319)
 
 
 
 
 ### RESULTS 
+Thus we have verified the truthtable of 3-bit up and down counter using verilog.
